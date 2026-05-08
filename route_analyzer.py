@@ -76,7 +76,7 @@ def analyze_route(
         result.segments.append(seg)
 
     result.total_distance_km = total_dist
-    result.flight_time_min = (total_dist / max(speed_mps, 0.1)) * 60.0 / 60.0
+    result.flight_time_min = (total_dist * 1000.0 / max(speed_mps, 0.1)) / 60.0
 
     battery_wh = (battery_mah / 1000.0) * voltage
     battery_hours = battery_wh / max(power_w, 0.1)
